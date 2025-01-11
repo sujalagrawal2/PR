@@ -7,18 +7,14 @@ import kotlinx.coroutines.launch
 import org.web3j.abi.FunctionEncoder
 import org.web3j.abi.datatypes.Address
 import org.web3j.abi.datatypes.Function
-import org.web3j.abi.datatypes.Type
 import org.web3j.abi.datatypes.Utf8String
-import org.web3j.abi.datatypes.generated.Uint256
 import org.web3j.crypto.Credentials
 import org.web3j.protocol.Web3j
-import org.web3j.protocol.core.methods.response.TransactionReceipt
 import org.web3j.protocol.core.methods.response.EthCall
 import org.web3j.protocol.core.methods.response.EthSendTransaction
 import org.web3j.tx.RawTransactionManager
 import org.web3j.tx.gas.DefaultGasProvider
 import java.math.BigInteger
-import java.util.*
 
 fun interactWithContract(web3: Web3j) {
     val contractAddress =
@@ -55,7 +51,7 @@ fun interactWithContract(web3: Web3j) {
                 BigInteger.ZERO
             )
             if (receipt != null) {
-                Log.d("Web3j", "Transaction successful: ${receipt.transactionHash}")
+                Log.d("Web3j", "Image Transaction successful: ${receipt.transactionHash}")
             }
         } catch (e: Exception) {
             Log.e("Web3j", "Error in upload_image: ${e.message}", e)
@@ -86,10 +82,10 @@ fun interactWithContract(web3: Web3j) {
             println(finalImages.toString())
             finalImages.forEach { image ->
                 println("Hii")
-                Log.d("ContractInteraction", "Final Image URL: ${image.value}")
+                Log.d("Web3j", "Final Image URL: ${image.value}")
             }
         } catch (e: Exception) {
-            Log.e("ContractInteraction", "Error in get_final_images: ${e.message}", e)
+            Log.e("Web3j", "Error in get_final_images: ${e.message}", e)
         }
     }
 }

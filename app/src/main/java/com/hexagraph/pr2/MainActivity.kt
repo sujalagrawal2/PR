@@ -36,7 +36,8 @@ class MainActivity : ComponentActivity() {
 
 
 
-                val web3 = Web3j.build(HttpService("http://192.168.209.82:8545"))
+//                val web3 = Web3j.build(HttpService("http://192.168.209.82:8545"))
+                val web3 = Web3j.build(HttpService("http://192.168.156.243:8545"))
                 thread {
                     try {
                         // Test connection
